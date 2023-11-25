@@ -14,11 +14,26 @@ const pixel_t color_map[] = {
     [COLOR_BLACK]   = RGB15(00, 00, 00),
     [COLOR_WHITE]   = RGB15(31, 31, 31) 
 };
+#define SCREEN_WIDTH  256
+#define SCREEN_HEIGHT 192 
 
 #endif // PLATFORM_NDS
 
+void gfx_initScreen(screen_t* screen)
+{
+#ifdef PLATFORM_NDS
+    // set output to lcd from bank a
+    videoSetMode(MODE_FB0);
+    vramSetBankA(VRAM_A_LCD);
+    screen->frame = (void *) VRAM_A;
+#endif // PLATFORM_NDS
+
+    screen->width = SCREEN_WIDTH;
+    screen->height = SCREEN_HEIGHT;
+}
+
 // fill the screen with a color
-void gfx_clearScreen(screen_t *screen, color_t color)
+void gfx_fillScreen(screen_t *screen, color_t color)
 {
     for(size_t i=0; i<screen->width*screen->height; i++)
         ((pixel_t*)screen->frame)[i] = color_map[color];

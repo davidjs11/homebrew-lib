@@ -17,27 +17,23 @@ void delay(int milliseconds)
 
 int main(void)
 {
-    consoleDemoInit();
-    videoSetMode(MODE_FB0);
-    vramSetBankA(VRAM_A_LCD);
 
-    // configure framebuffer for nintendo ds
     screen_t screen;
-    screen.frame = (void *) VRAM_A;
-    screen.width = 256;
-    screen.height = 192;
-
+    gfx_initScreen(&screen);
 
     // controller
     controller_t controller;
     input_initController(&controller, 0);
+    button_t *input = controller.input;
 
-    while(1) {
+    // game loop
+    while(true) {
         input_getState(&controller);
-        if (controller.input[INPUT_UP].frames > 50)
-            gfx_clearScreen(&screen, COLOR_WHITE);
+
+        if (input[INPUT_UP].frames > 50)
+            gfx_fillScreen(&screen, COLOR_WHITE);
         else 
-            gfx_clearScreen(&screen, COLOR_BLACK);
+            gfx_fillScreen(&screen, COLOR_BLACK);
     }
 
     return 0;

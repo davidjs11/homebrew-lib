@@ -17,8 +17,11 @@ typedef struct {
     u16 height;
 } screen_t;
 
+// initialize a screen struct
+void gfx_initScreen(screen_t* screen);
+
 // fill the screen with a color
-void gfx_clearScreen(screen_t*, color_t);
+void gfx_fillScreen(screen_t*, color_t);
 
 
 
