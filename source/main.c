@@ -31,19 +31,13 @@ int main(void)
     // controller
     controller_t controller;
     input_initController(&controller, 0);
-    button_t *input = controller.input;
 
     while(1) {
-
-        // input
         input_getState(&controller);
-
-        if (input[INPUT_UP].pressed)
-            gfx_clearScreen(&screen, COLOR_RED);
+        if (controller.input[INPUT_UP].frames > 50)
+            gfx_clearScreen(&screen, COLOR_WHITE);
         else 
             gfx_clearScreen(&screen, COLOR_BLACK);
-
-        delay(10);
     }
 
     return 0;

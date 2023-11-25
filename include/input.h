@@ -17,7 +17,7 @@ typedef struct {
     u8 index;
 } controller_t;
 
-typedef enum {
+enum key_index {
     INPUT_UP,
     INPUT_DOWN,
     INPUT_LEFT,
@@ -30,12 +30,12 @@ typedef enum {
     INPUT_R,
     INPUT_SELECT,
     INPUT_START
-} keys;
+};
 
 // initialize a controller (given its index)
 void input_initController(controller_t*, u8 index);
 
 // get the state of a controller
-void input_getState(controller_t* controller);
+void input_getState(controller_t*);
 
 #endif // INPUT_H
