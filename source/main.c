@@ -27,14 +27,23 @@ int main(void)
     screen.width = 256;
     screen.height = 192;
 
-    while(1) {
-        // graphictests
-        gfx_clearScreen(&screen, COLOR_BLACK);
-        delay(100);
-        gfx_clearScreen(&screen, COLOR_WHITE);
-        delay(100);
 
-        swiWaitForVBlank();
+    // controller
+    controller_t controller;
+    input_initController(&controller, 0);
+    button_t *input = controller.input;
+
+    while(1) {
+
+        // input
+        input_getState(&controller);
+
+        if (input[INPUT_UP].pressed)
+            gfx_clearScreen(&screen, COLOR_RED);
+        else 
+            gfx_clearScreen(&screen, COLOR_BLACK);
+
+        delay(10);
     }
 
     return 0;

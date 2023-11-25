@@ -1,7 +1,7 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
-#include <stdint.h>
+#include "types.h"
 
 typedef enum {
     COLOR_RED,
@@ -13,11 +13,11 @@ typedef enum {
 
 typedef struct {
     void *frame;
-    uint16_t width;
-    uint16_t height;
+    u16 width;
+    u16 height;
 } screen_t;
 
-// clear the screen
+// fill the screen with a color
 void gfx_clearScreen(screen_t*, color_t);
 
 
