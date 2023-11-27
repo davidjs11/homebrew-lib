@@ -23,6 +23,8 @@ void gfx_initScreen(screen_t* screen);
 // fill the screen with a color
 void gfx_fillScreen(screen_t*, color_t);
 
+// set a pixel on the screen
+void gfx_setPixel(screen_t *screen, u16 x, u16 y, color_t color);
 
 
 #endif // GRAPHICS_H

@@ -38,3 +38,9 @@ void gfx_fillScreen(screen_t *screen, color_t color)
     for(size_t i=0; i<screen->width*screen->height; i++)
         ((pixel_t*)screen->frame)[i] = color_map[color];
 }
+
+// set a pixel on the screen
+void gfx_setPixel(screen_t *screen, u16 x, u16 y, color_t color)
+{
+    ((pixel_t *)screen->frame)[x+y*screen->width] = color_map[color];
+}
