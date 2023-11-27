@@ -1,0 +1,37 @@
+=== input ===========================================================
+
+===== struct button_t:
+information of a button on the controller. data fields:
+    bool pressed;   // 'true' if button is being held 
+    bool down;      // 'true' if button has been pressed this frame
+    bool up;        // 'true' if button has been released this frame
+    u32 frames;     // number of frames the button has been held 
+
+===== struct controller_t:
+information of a controller. data fields:
+    button_t *input;    // array of buttons
+    u8 size;            // size of the array
+    bool enabled;       // 'true' if controller is enabled
+    u8 index;           // index of the controller
+
+===== enum key_index:
+enumerator for indexing inside the button array.
+    INPUT_UP
+    INPUT_DOWN
+    INPUT_LEFT
+    INPUT_RIGHT
+    INPUT_A
+    INPUT_B
+    INPUT_Y
+    INPUT_X
+    INPUT_L
+    INPUT_R
+    INPUT_SELECT
+    INPUT_START
+
+
+===== input_initController(controller_t *controller, u8 index):
+initialize a controller given its index.
+
+===== input_getState(controller_t *controller):
+update the controller status, used in every iteration of the app loop.

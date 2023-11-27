@@ -25,7 +25,7 @@ int main(void)
     // controller
     controller_t controller;
     input_initController(&controller, 0);
-    button_t *input = controller.input;
+    // button_t *input = controller.input;
 
     gfx_fillScreen(&screen, COLOR_BLACK);
 

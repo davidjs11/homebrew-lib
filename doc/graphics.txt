@@ -1,0 +1,30 @@
+=== graphics ========================================================
+
+===== enum color_t:
+color enumerator used for indexing a platform-dependent
+color_map array. currently there's 5 colors available:
+    COLOR_RED
+    COLOR_GREEN
+    COLOR_BLUE
+    COLOR_BLACK
+    COLOR_WHITE
+
+===== struct screen_t:
+screen information struct. stores the framebuffer and the screen
+size. data fields:
+    void *frame;    // the framebuffer
+    u16 width;      // size variables
+    u16 height;
+
+
+===== gfx_initScreen(screen_t *screen):
+initializes the screen_t struct with the correct fields depending
+on the platform you're using.
+
+===== gfx_fillScreen(screen_t *screen, color_t color):
+fills the screen with a selected color.
+
+===== gfx_setPixel(screen_t *screen, u16 x, u16 y, color_t color):
+sets a pixel on the screen given its coordinates (x. y) and the color.
+it doesn't check if the coordinates are valid, so you must check it
+yourself.

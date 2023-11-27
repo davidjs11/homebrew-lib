@@ -18,13 +18,13 @@ typedef struct {
 } screen_t;
 
 // initialize a screen struct
-void gfx_initScreen(screen_t* screen);
+void gfx_initScreen(screen_t*);
 
 // fill the screen with a color
 void gfx_fillScreen(screen_t*, color_t);
 
 // set a pixel on the screen
-void gfx_setPixel(screen_t *screen, u16 x, u16 y, color_t color);
+void gfx_setPixel(screen_t *, u16 x, u16 y, color_t);
 
 
 #endif // GRAPHICS_H
