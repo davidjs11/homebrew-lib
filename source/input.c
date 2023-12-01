@@ -20,7 +20,8 @@ const u32 keymap[] = {
 
 
 // initialize a controller (given its index)
-void input_initController(controller_t* controller, u8 index)
+// returns a pointer to the input array
+button_t *input_initController(controller_t* controller, u8 index)
 {
     // init values 
     controller->enabled = true;
@@ -35,6 +36,9 @@ void input_initController(controller_t* controller, u8 index)
         controller->input->down = false;
         controller->input->frames = 0;
     }
+
+    // return a pointer to the button array
+    return controller->input;
 }
 
 

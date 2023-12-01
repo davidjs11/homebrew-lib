@@ -44,3 +44,13 @@ void gfx_setPixel(screen_t *screen, u16 x, u16 y, color_t color)
 {
     ((pixel_t *)screen->frame)[x+y*screen->width] = color_map[color];
 }
+
+void gfx_fillRect(screen_t *screen,u16 x,u16 y,u16 w,u16 h,color_t color){
+    u16 finish_x = x+w;
+    u16 finish_y = y+h;
+    for(u16 i=x; i<finish_x; i++)
+        for(u16 j=y; j<finish_y; j++)
+            ((pixel_t*)screen->frame)[i+j*screen->width]=color_map[color];
+
+
+}

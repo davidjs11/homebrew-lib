@@ -24,19 +24,28 @@ int main(void)
 
     // controller
     controller_t controller;
-    input_initController(&controller, 0);
-    // button_t *input = controller.input;
-
-    gfx_fillScreen(&screen, COLOR_BLACK);
+    button_t *input = input_initController(&controller, 0);
 
     // game loop
     while(true) {
         input_getState(&controller);
 
+        // clear the screen
+        gfx_fillScreen(&screen, COLOR_BLACK);
+
         // set some pixels on the screen
         for(int i=0; i<50; i++)gfx_setPixel(&screen, i, i, COLOR_RED);
         for(int i=50; i<100; i++)gfx_setPixel(&screen, i, i, COLOR_BLUE);
         for(int i=100; i<150;i++)gfx_setPixel(&screen, i, i, COLOR_GREEN);
+
+        // fill some rectangles
+        gfx_fillRect(&screen,   0,   0, 50, 50, COLOR_GREEN);
+        gfx_fillRect(&screen,  50,  50, 50, 50, COLOR_RED);
+        gfx_fillRect(&screen, 100, 100, 50, 50, COLOR_BLUE);
+
+        gfx_fillScreen(&screen, COLOR_BLACK);
+        swiWaitForVBlank();
+
     }
 
     return 0;

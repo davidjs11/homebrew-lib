@@ -26,5 +26,8 @@ void gfx_fillScreen(screen_t*, color_t);
 // set a pixel on the screen
 void gfx_setPixel(screen_t *, u16 x, u16 y, color_t);
 
+// fill a rect on the screen
+void gfx_fillRect(screen_t *, u16 x, u16 y, u16 w, u16 h, color_t);
+
 
 #endif // GRAPHICS_H

@@ -33,7 +33,7 @@ typedef enum {
 } key_index;
 
 // initialize a controller (given its index)
-void input_initController(controller_t*, u8 index);
+button_t *input_initController(controller_t*, u8 index);
 
 // get the state of a controller
 void input_getState(controller_t*);
