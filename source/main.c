@@ -19,7 +19,7 @@ int main(void)
 {
 
     screen_t screen;
-    gfx_initScreen(&screen);
+    gfx_initScreen(&screen, SCR_WIDTH, SCR_HEIGHT);
     consoleDemoInit();
 
     // controller
@@ -44,6 +44,7 @@ int main(void)
         gfx_fillRect(&screen, 100, 100, 50, 50, COLOR_BLUE);
 
         gfx_fillScreen(&screen, COLOR_BLACK);
+        gfx_printScreen(&screen);
         swiWaitForVBlank();
 
     }

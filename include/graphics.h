@@ -17,8 +17,15 @@ typedef struct {
     u16 height;
 } screen_t;
 
+// global constants
+extern const u16 SCR_WIDTH;
+extern const u16 SCR_HEIGHT;
+
 // initialize a screen struct
-void gfx_initScreen(screen_t*);
+void gfx_initScreen(screen_t*, u16 width, u16 height);
+
+// print a frame into the screen
+void gfx_printScreen(screen_t *screen);
 
 // fill the screen with a color
 void gfx_fillScreen(screen_t*, color_t);
@@ -28,6 +35,7 @@ void gfx_setPixel(screen_t *, u16 x, u16 y, color_t);
 
 // fill a rect on the screen
 void gfx_fillRect(screen_t *, u16 x, u16 y, u16 w, u16 h, color_t);
+
 
 
 #endif // GRAPHICS_H
